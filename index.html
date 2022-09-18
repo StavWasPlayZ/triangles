@@ -55,5 +55,27 @@
             <script src="Resources/Scripts/Geometry/old_geometry_types.js"></script>
             <script src="Resources/Scripts/Geometry/geometry_processor.js"></script>
         </main>
+
+
+        <footer>
+            <a href="https://github.com/StavWasPlayZ/Triangle/tree/master">
+                <!-- .ignorealt will ignore the alt-div rule -->
+                <img src="Resources/SVGs/github.svg" alt="GitHub Repository"/>
+            </a>
+        </footer>
+
+        <script>
+            document.querySelectorAll("footer img[alt]:not(.ignorealt)").forEach((element) => {
+                const alt = document.createElement("div"), parent = element.parentElement;
+                alt.innerText = element.getAttribute("alt");
+                alt.classList.add("alt");
+                
+                if (element.nextElementSibling == null)
+                    parent.appendChild(alt);
+                else
+                    parent.insertBefore(alt, element.nextElementSibling);
+                
+            })
+        </script>
     </body>
 </html>

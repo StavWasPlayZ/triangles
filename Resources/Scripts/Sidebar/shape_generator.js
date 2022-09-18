@@ -156,6 +156,8 @@ function registerFunction(element, funcObj) {
             funcObj.function(event, element);
     });
 }
-function ranPos(style) {
-    return style.replace("%rw", ranNum(window.innerWidth*.75)).replace("%rh", ranNum(window.innerHeight*.75));
-}
+
+const genRanPos = (max, lowerPercentage = .75, margin = 15) =>
+    ranNum(max * lowerPercentage - margin) + margin;
+const ranPos = (style) =>
+    style.replace("%rw", genRanPos(window.innerWidth)).replace("%rh", genRanPos(window.innerHeight));
