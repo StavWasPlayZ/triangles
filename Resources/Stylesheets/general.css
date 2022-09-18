@@ -1,0 +1,25 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    
+    --shape-color: white;
+    --point-color: gray;
+    /* For the degree circles */
+    --radius: 30px;
+}
+:root.picking {
+    --shape-color: #2d3059 !important;
+    --point-color: rgb(54, 51, 73) !important;
+}
+
+body {
+    background-color: rgb(36, 36, 36);
+    margin: 0;
+    overflow: hidden;
+    transition: background-color ease-in-out .4s;
+}
+
+#canvas {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}

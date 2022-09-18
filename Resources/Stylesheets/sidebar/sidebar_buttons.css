@@ -1,0 +1,38 @@
+/* SVGs */
+:is(#line, #equality, #parallel)::after {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    left: 0;
+}
+
+/* Shapes Buttons */
+#line::after {
+    background-image: url("../../SVGs/line.svg");
+}
+#point::after, #circle::after {
+    border-radius: 50%;
+
+    width: 30%;
+    height: 30%;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+#point::after {
+    background-color: white;
+}
+#circle::after {
+    border: white solid 5px;
+}
+
+/* Geometry Buttons */
+#equality::after {
+    background-image: url("../../SVGs/equality.svg");
+}
+#parallel::after {
+    background-image: url("../../SVGs/parallel.svg");
+}

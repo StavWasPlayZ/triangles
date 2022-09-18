@@ -1,0 +1,60 @@
+#line-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -30px;
+
+    margin: auto;
+    padding: 10px 10vw;
+
+    width: max-content;
+    border-radius: 10px;
+
+    background-color: rgb(0, 0, 0, .3);
+
+
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+
+
+    opacity: 0;
+    z-index: 10;
+    transition: all ease-in-out .15s;
+}
+#line-hint.show {
+    opacity: 1;
+    top: 10px
+}
+
+#line-hint > div {
+    position: absolute;
+    right: 10px;
+    top: 1px;
+
+    color: rgba(204, 0, 0, 0.75);
+    opacity: .75;
+
+    transition: opacity ease-out .15s;
+}
+#line-hint > div::before {
+    content: "";
+    display: block;
+    width: 1em;
+    height: 1em;
+
+    position: absolute;
+    transform: translateX(-25%) translateY(15%);
+
+    background-color: rgba(139, 0, 0, 0.15);
+    border-radius: 50%;
+}
+#line-hint > div:hover {
+    opacity: 1;
+}
+#line-hint > div:hover::before {
+    background-color: rgba(139, 0, 0, 0.3);
+}
+#line-hint > div:active::before {
+    background-color: rgba(139, 0, 0, 0.5);
+}

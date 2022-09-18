@@ -1,0 +1,156 @@
+.sidebar {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+
+    width: 100px;
+    height: 100vh;
+    opacity: .8;
+    
+    
+    transition: all .5s;
+    z-index: 10;
+}
+#shapepicker {
+    right: -75px;
+    background-color: #607d8b;
+    border-radius: 10px 0 0 10px;
+}
+#geometrydefiner {
+    left: -75px;
+    background-color: #ececec;
+    border-radius: 0 10px 10px 0;
+}
+
+.sidebar.hover {
+    opacity: 1;
+}
+#shapepicker.hover {
+    right: 0;
+    border-radius: 25px 0 0 25px;
+}
+#geometrydefiner.hover {
+    left: 0;
+    border-radius: 0 25px 25px 0;
+}
+
+
+
+.sidebar > button {
+    position: relative;
+    width: 80%;
+    padding-bottom: 80%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    font-size: 0;
+    transition: .25s all;
+    margin: 3px 0 3px;
+
+    border: none;
+}
+.sidebar > button:hover {
+    background-color: rgba(0, 0, 0, .5);
+    width: 85%;
+    padding-bottom: 85%;
+    border-radius: 15px;
+}
+
+
+/* Buttons ::after */
+.sidebar > button::after {
+    content: "";
+    position: absolute;
+    opacity: .3;
+}
+.sidebar > button:hover::after {
+    opacity: .5;
+}
+
+
+/* Buttons panel */
+.button-panel {
+    display: flex;
+    height: min-content;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    position: absolute;
+    top: 2px;
+}
+#shapepicker > .button-panel {
+    flex-direction: row-reverse;
+    width: 90%;
+}
+#geometrydefiner > .button-panel {
+    width: 100%;
+}
+.button-panel>* {
+    width: 20px;
+    height: 20px;
+    top: 6px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    margin-left: 3px;
+}
+
+.pin::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    background-image: url("../../SVGs/pin.svg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 30%;
+    transition: all .25s;
+}
+.pin:hover::after {
+    transform: rotate(-22deg);
+}
+.pin.selected::after {
+    transform: rotate(-45deg);
+    left: 1px;
+}
+
+
+/* Toolbox */
+[ctooltip]::before {
+    content: attr(ctooltip);
+    color: white;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+    background-color: black;
+    padding: 6px;
+    border-radius: 5px;
+    transform: scale(0, 0);
+    transition: .1s cubic-bezier(0.4, 0, 1, 1) all;
+    z-index: 1;
+}
+[ctooltip]:hover::before {
+    top: 110%;
+    transform: scale(1, 1);
+}
+
+button[ctooltip]:hover::before {
+    top: 105%;
+    bottom: 0px;
+}
+button[ctooltip]::before {
+    font-size: 1rem;
+    right: 0;
+    top: 60%;
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

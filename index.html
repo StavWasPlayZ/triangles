@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+            <title>Triangle Stuff</title>
+
+
+            <link rel="stylesheet" href="Resources/Stylesheets/general.css">
+            <link rel="stylesheet" href="Resources/Stylesheets/sidebar/sidebar.css">
+            <link rel="stylesheet" href="Resources/Stylesheets/sidebar/sidebar_buttons.css">
+
+            <link rel="stylesheet" href="Resources/Stylesheets/shapes.css">
+            <link rel="stylesheet" href="Resources/Stylesheets/geometry/general.css">
+        </head>
+    <body>
+        <main>
+            <div class="sidebar" id="shapepicker">
+                <div class="button-panel">
+                    <div class="pin" ctooltip="Pin this window"></div>
+                    <div id="texttoggle" ctooltip="Toggle Width Text"></div>
+                </div>
+                <button id="line" ctooltip="Line">Line</button>
+                <button id="point" ctooltip="Point">Point</button>
+                <button id="circle" ctooltip="Circle">Circle</button>
+            </div>
+
+            <div class="sidebar" id="geometrydefiner">
+                <div class="button-panel">
+                    <div class="pin" ctooltip="Pin this window"></div>
+                </div>
+                <button id="equality" ctooltip="Equality">Equality</button>
+                <button id="parallel" ctooltip="Parallel">Parallel</button>
+            </div>
+
+            <div id="line-hint">
+                Select 2 lines to apply the geometry
+                <div>x</div>
+            </div>
+
+
+            <div id="canvas">
+                <svg id="degreeRenderer">
+
+                </svg>
+            </div>
+
+            <script src="Resources/Scripts/Sidebar/sidebar.js"></script>
+
+            <script src="Resources/Scripts/Shapes/shape_functions.js"></script>
+            <script src="Resources/Scripts/Shapes/shape_types.js"></script>
+            <script src="Resources/Scripts/Sidebar/shape_generator.js"></script>
+
+            <script src="Resources/Scripts/Geometry/old_geometry_types.js"></script>
+            <script src="Resources/Scripts/Geometry/geometry_processor.js"></script>
+        </main>
+    </body>
+</html>
