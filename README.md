@@ -14,7 +14,7 @@ More specifically, that the following inequality is always met for any given deg
 
 The proof here involves constructing a triangle from 3 lines while enabling the *Width Text* option, and seeing that no matter how much we stretch or transform said triangle, the condition above is always to be met.
 
-We can also see the condition of $c = a+b$ by simply pushing the intersection point of the 2 other sides towards the longest side, and seeing the pixels form the equality.
+We can also see the condition of $c = a+b$ by simply pushing the intersection point of the 2 other sides towards the longest side, and seeing the lengths form the equality.
 
 ## Other Fluff
 
