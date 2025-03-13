@@ -1,8 +1,6 @@
 const canvas = document.getElementById("canvas"), degreeRenderer = canvas.querySelector("#degreeRenderer");
 
 
-
-
 //#region General Functions
 
 
@@ -360,7 +358,6 @@ function ranNum(max) {
 //#endregion
 
 
-
 function dragLine(element) {
     const left = element.classList.contains("left");
 
@@ -387,9 +384,7 @@ function dragLine(element) {
     
 
     set2PointRot(line, a, b, left);
-    
 }
-
 
 
 getDefRadius = () => parseInt(window.getComputedStyle(document.body).getPropertyValue("--radius"));

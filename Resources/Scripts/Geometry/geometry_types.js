@@ -17,7 +17,7 @@ const geometryTypes = [
             const secondElement = ((currentElement == elements[0]) ? elements[1] : elements[0]),
                 shape2 = secondElement.firstChild;
                 // secondElement.children[1] = point container
-            let leftPoint = secondElement.children[1].children[0],
+                leftPoint = secondElement.children[1].children[0],
                 rightPoint = secondElement.children[1].children[1];
             const getOpposite = (_point) => (_point == leftPoint) ? rightPoint : leftPoint
 
@@ -25,18 +25,13 @@ const geometryTypes = [
             let pointToMove = point.classList.contains("right") ? rightPoint : leftPoint;
             if (shape1.hasAttribute("mirror"))
                 pointToMove = getOpposite(pointToMove);
-            
-            /* Check if pointToMove can even move */ {
-                const befPointToMove = pointToMove;
-                pointToMove = checkPointToMove(pointToMove, getOpposite(pointToMove), point);
-
-                if (pointToMove == null)
-                    return befPointToMove;
-                if (pointToMove != befPointToMove) {
-                    leftPoint = pointToMove.parentElement.firstChild;
-                    rightPoint = leftPoint.nextElementSibling;
-                }
-            }
+            // First snip check
+            if (isSnipped(pointToMove, point))
+                // Second snip check, after switching to pointToMove's sibling
+                if (isSnipped(pointToMove = getOpposite(pointToMove), point))
+                    // We don't have much to do if the point is snipped on both sides
+                    //TODO: the above is a lie. Add a check for if the snipped element can be 'pointToMove', for both points.
+                    return pointToMove;
 
 
             const shape2Rot = getRotation(shape2),
@@ -105,62 +100,4 @@ function isSnipped(point, currPoint) {
             return true;
     
     return false;
-}
-
-/**
- * Checks if {@link pointToMove} is a valid subject to be moved by {@link currentPoint}.
- * Replaces it if needed and is possible.
- * 
- * @param {HTMLElement} perferredPoint The first point of the checked shape; the perferred one
- * @param {HTMLElement} otherPoint The second point of the checked shape
- * @param {HTMLElement} currentPoint ...the current point
- * 
- * @returns {HTMLElement?} Either the same given point, a different one, or null if no matches
- */
-function checkPointToMove(perferredPoint, otherPoint, currentPoint, checkInner = true) {
-
-    // Check if the perferred point is snipped
-    if (isSnipped(perferredPoint, currentPoint)) {
-        // If so, refer to the sibling and perform the same check
-        if (isSnipped(otherPoint, currentPoint)) {
-
-            //FIXME: This is the cause for a lot of problems, AKA experimantal. Very necessary, though.
-
-            // Check if either point has a 'snip' attribute, and attempt to perform the same check on them
-            if (checkInner) {
-                const SC1 = innerSnipCheck(perferredPoint, currentPoint); // SC = Snip Check
-                if (SC1 != null)
-                    return SC1;
-                const SC2 = innerSnipCheck(otherPoint, currentPoint);
-                if (SC2 != null)
-                    return SC2;
-            }
-
-
-            // All above points are no match
-            return null;
-        }
-
-        return otherPoint;
-    }
-
-    return perferredPoint;
-    
-}
-/**
- * Checks if {@link point} is snipped.
- * On the case that it is, checks whether the snipped point is a valid subject to be moved by {@link currentPoint} using {@link checkPointToMove};
- * Null otherwise
- * @param {HTMLElement} point The point to check for
- * @param {HTMLElement} currentPoint
- */
-function innerSnipCheck(point, currentPoint) {
-    if (!point.hasAttribute("snip"))
-        return null;
-
-
-    const oPerferredPoint = points[point.getAttribute("snip")],
-        oOtherPoint = getFirstSibling(oPerferredPoint);
-
-    return checkPointToMove(oPerferredPoint, oOtherPoint, currentPoint, false);
 }

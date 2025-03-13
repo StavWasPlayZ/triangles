@@ -20,7 +20,7 @@ for (let i = 0; i < shapeBtns.length; i++) {
 
 // IDN = ID Number
 // Shape IDN
-    sIdn = 0;
+sIdn = 0;
 
 /**
  * idn -> point

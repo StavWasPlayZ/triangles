@@ -16,6 +16,7 @@ const button_shapes = [
                     },
                     {
                         event_name: "pointermove",
+                        // Means that the function is relative to the canvas.
                         apply_on_canvas: true,
                         function: (event, element) => {
                             if (!element.hasAttribute("drag"))

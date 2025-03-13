@@ -87,7 +87,6 @@ function isSimilar(arr1, arr2) {
     if (arr1.length != arr2.length)
         return false;
     
-    
     for (let i = 0; i < arr1.length; i++)
         if (!arr2.includes(arr1[i]))
             return false;
@@ -130,7 +129,6 @@ function submitGeometry() {
     thisGeoArrs.push(geometryObj)
 
 
-
     currentGeometryObject.function(geometryObj, (initOnPointDrag ? points[0] : null));
     closeHintBox(false);
 
@@ -145,10 +143,12 @@ function submitGeometry() {
  * @typedef GeometryObject
  * @type {{participants: HTMLElement[], points: HTMLElement[], init_on_point_drag: boolean, function: function}}
 */
+
 /**
 * @type {Map<string, GeometryObject[]>}
 */
 let geometryFunctions = new Map();
+
 /**
  * @param {(geoFunc: GeometryObject) => null} runnable 
  */
