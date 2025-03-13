@@ -1,5 +1,7 @@
 # Triangles
 
+[![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://stavwasplayz.github.io/triangles/)
+
 ![Banner](./public/assets/banner.jpg)
 
 ## Purpose
