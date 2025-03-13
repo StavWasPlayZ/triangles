@@ -20,7 +20,7 @@ We can also see the condition of $c = a+b$ by simply pushing the intersection po
 
 ## Other Fluff
 
-I also added a point and a circle just to see how far I can stretch my pretty flexy API I made, which was pretty satisfying lol.
+I also added a point and a circle shape just to see how far I could stretch my pretty flexy API, which was pretty satisfying lol.
 
 Though the point shape is pretty much useless and the circle is pretty buggy.  
 (Not to be fixed or anything.)
